@@ -1,0 +1,41 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="./subtitulo-uno-element.html">
+<link rel="import" href="./subtitulo-dos-element.html">
+
+<dom-module id="titulo-element">
+  <template>
+    <style>
+      :host {
+        display: block;
+        padding: 10px;
+      }
+    </style>
+
+    <h2>titulo works!</h2>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Proin a turpis sit amet mi faucibus egestas. Suspendisse consectetur nisi nec elit fringilla interdum. 
+        Pellentesque iaculis augue sit amet accumsan semper. Morbi ac velit sed felis maximus pellentesque in eu mi. 
+    </p>
+    <subtitulo-uno-element></subtitulo-uno-element>
+    <subtitulo-dos-element></subtitulo-dos-element>
+  </template>
+
+  <script>
+    class Titulo extends Polymer.Element {
+      static get is() { return 'titulo-element'; }
+    }
+
+    window.customElements.define(Titulo.is, Titulo);
+  </script>
+</dom-module>

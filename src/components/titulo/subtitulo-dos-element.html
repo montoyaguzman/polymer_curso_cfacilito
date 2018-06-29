@@ -1,0 +1,27 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="subtitulo-dos-element">
+  <template>
+    <style>
+      :host {
+        display: block;
+        padding: 10px;
+      }
+    </style>
+
+    <h2>subtitulo-dos-element works!</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+      Proin a turpis sit amet mi faucibus egestas. Suspendisse consectetur nisi nec elit fringilla interdum. 
+      Pellentesque iaculis augue sit amet accumsan semper. Morbi ac velit sed felis maximus pellentesque in eu mi. 
+    </p>
+  </template>
+
+  <script>
+    class SubtituloDos extends Polymer.Element {
+      static get is() { return 'subtitulo-dos-element'; }
+    }
+
+    window.customElements.define(SubtituloDos.is, SubtituloDos);
+  </script>
+</dom-module>
