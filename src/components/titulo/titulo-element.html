@@ -21,8 +21,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
-    <h2>titulo works!</h2>
+    <h2> titulo works! </h2>
     <p>
+        Hola [[nombre]] [[ app ]]
+        <br>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
         Proin a turpis sit amet mi faucibus egestas. Suspendisse consectetur nisi nec elit fringilla interdum. 
         Pellentesque iaculis augue sit amet accumsan semper. Morbi ac velit sed felis maximus pellentesque in eu mi. 
@@ -32,10 +34,89 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    class Titulo extends Polymer.Element {
-      static get is() { return 'titulo-element'; }
-    }
+    /*
+    Titulo =
+    Polymer({
+      is: "titulo-element",
+      properties: {
+        nombre: {
+          type: String,
+          value: "sin nombre "
+        },
+        app: {
+          type: String,
+          value: "Guzman"
+        }
+      },
+      created: function() {
+        console.log("Created with object.....");
+        console.log(this.nombre);
+      },
+      attached: function() {
+        console.log("Attached, el elemento esta ya en documento.....");
+      },
+      detached: function() {
+        console.log("Detached, el elemento esta ya en documento.....");
+      },
+      attr: function() {
+        console.log("Detached, el elemento esta ya en documento.....");
+      },
+      attributedChanged: function() {
+        // Se ejecuta cuando un atributo ha cambiado (las props estan excluidas)
+        console.log("AttributedChanged, el elemento esta ya en documento.....");
+      },
+            ready: function() {
+        console.log("Ready with object.....");
+        console.log(this.nombre);
+      }
+    });
+    */
 
+    class Titulo extends Polymer.Element {
+
+      constructor() {
+        super();
+        console.log("Created.....");
+        // console.log(this.$.nombre);
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+        console.log('Ejecutándose connectedCallback');
+      }
+
+      disconnectedCallback() {
+        super.disconnectedCallback();
+        console.log('Ejecutándose disconnectedCallback');
+      }
+
+      attributeChangedCallback(name, valorAnterior, valorNuevo) {
+        super.attributeChangedCallback();
+        console.log('Ejecutándose attributeChangedCallback', name, valorAnterior, valorNuevo);
+      }
+
+      ready() {
+        super.ready();
+        console.log("Ready.....");
+        console.log(this.nombre);
+      }
+
+      static get is() { return 'titulo-element'; }
+      static get properties() {
+        return {
+          nombre: {
+            type: String,
+            value: "sin nombre "
+          },
+          app: { 
+            type: String,
+            value: "Guzman" // El value se pinta cuando la propiedad no es pasada, vacio cuenta como valor
+          }
+        }
+      }
+    }
     window.customElements.define(Titulo.is, Titulo);
+
+
   </script>
 </dom-module>
