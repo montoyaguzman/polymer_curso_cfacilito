@@ -38,12 +38,13 @@
     <paper-card elevation="3">
       <div class="card-header">
         <!-- <iron-icon icon="account-circle"></iron-icon> -->
+        <iron-icon icon="account-circle"></iron-icon>
         <span class="letraNegrita"> Crear cuenta </span>
       </div>
       <form is="iron-form" id="form">
         <div class="card-content">
-          <paper-input type="email" label="Email" required></paper-input>
-          <paper-input type="password" label="Contraseña" required></paper-input>
+          <paper-input type="email" label="Email" required auto-validate error-message="campo obligatorio"></paper-input>
+          <paper-input type="password" label="Contraseña" required auto-validate error-message="campo obligatorio"></paper-input>
         </div>
         <br>
         <div class="card-actions">
@@ -52,6 +53,13 @@
         </div>
 
       </form>
+
+      <!--
+      <form action="/action_page.php">
+        Username: <input type="text" name="usrname" required>
+        <input type="submit">
+      </form> 
+      -->
     </paper-card>
 
     <!--

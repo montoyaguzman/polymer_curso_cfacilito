@@ -9,6 +9,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/iron-icons/maps-icons.html">
+<link rel="import" href="../../../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="./subtitulo-uno-element.html">
 <link rel="import" href="./subtitulo-dos-element.html">
 
@@ -23,13 +25,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <h2> titulo works! </h2>
     <p>
-        Hola [[nombre]] [[ app ]]
+        <paper-input type="text" value="{{ nombre }}" required></paper-input>
         <br>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Proin a turpis sit amet mi faucibus egestas. Suspendisse consectetur nisi nec elit fringilla interdum. 
-        Pellentesque iaculis augue sit amet accumsan semper. Morbi ac velit sed felis maximus pellentesque in eu mi. 
+        <h1> 
+          Hola <subtitulo-uno-element nombre="{{ nombre }}"></subtitulo-uno-element> y mi apellido es [[ app ]]
+        </h1>
     </p>
-    <subtitulo-uno-element></subtitulo-uno-element>
+    
+    Iconos
+    <iron-icon icon="account-circle"></iron-icon>
+    <iron-icon icon="add-circle"></iron-icon>
+    <iron-icon icon="icons:add-circle"></iron-icon>
+    <iron-icon icon="maps:directions-bus"></iron-icon>
+    <iron-icon icon="mail" class="black"></iron-icon>
+
     <subtitulo-dos-element></subtitulo-dos-element>
   </template>
 
@@ -76,29 +85,37 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       constructor() {
         super();
-        console.log("Created.....");
+        // console.log("Created.....");
         // console.log(this.$.nombre);
       }
 
+      /*
       connectedCallback() {
         super.connectedCallback();
-        console.log('Ejecutándose connectedCallback');
+        // console.log('Ejecutándose connectedCallback');
       }
 
       disconnectedCallback() {
         super.disconnectedCallback();
-        console.log('Ejecutándose disconnectedCallback');
+        // console.log('Ejecutándose disconnectedCallback');
       }
 
       attributeChangedCallback(name, valorAnterior, valorNuevo) {
         super.attributeChangedCallback();
-        console.log('Ejecutándose attributeChangedCallback', name, valorAnterior, valorNuevo);
+        // console.log('Ejecutándose attributeChangedCallback', name, valorAnterior, valorNuevo);
       }
+      */
 
       ready() {
         super.ready();
-        console.log("Ready.....");
-        console.log(this.nombre);
+        
+        setTimeout(() => {
+          this.nombre = "sin asignar...";
+        }, 5000);
+        
+
+        // console.log("Ready.....");
+        // console.log(this.nombre);
       }
 
       static get is() { return 'titulo-element'; }
@@ -110,7 +127,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           },
           app: { 
             type: String,
-            value: "Guzman" // El value se pinta cuando la propiedad no es pasada, vacio cuenta como valor
+            value: "sin apellido" // El value se pinta cuando la propiedad no es pasada, vacio cuenta como valor
           }
         }
       }

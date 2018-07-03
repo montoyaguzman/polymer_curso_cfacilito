@@ -8,18 +8,42 @@
         padding: 10px;
       }
     </style>
-
-    <h2>subtitulo-uno-element works!</h2>
+    
+    <!-- <h2>subtitulo-uno-element works!</h2> -->
+    <br>
+    <span> mi nombre es {{ nombre }} </span>
+    <!--
+    <br>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
       Proin a turpis sit amet mi faucibus egestas. Suspendisse consectetur nisi nec elit fringilla interdum. 
       Pellentesque iaculis augue sit amet accumsan semper. Morbi ac velit sed felis maximus pellentesque in eu mi. 
     </p>
+    -->
+    
   </template>
 
   <script>
     class SubtituloUno extends Polymer.Element {
       static get is() { return 'subtitulo-uno-element'; }
+
+      ready() {
+        super.ready();
+        
+        setTimeout(() => {
+          this.nombre = "uno nuevo...";
+        }, 3000);
+      }
+
+      static get properties() {
+          return {
+            nombre: {
+              type: String,
+              value: "default ",
+              notify: true
+            }
+          }
+      }
     }
 
     window.customElements.define(SubtituloUno.is, SubtituloUno);
