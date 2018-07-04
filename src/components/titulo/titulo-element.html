@@ -39,6 +39,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <iron-icon icon="maps:directions-bus"></iron-icon>
     <iron-icon icon="mail" class="black"></iron-icon>
 
+    <br>
+    <slot></slot>
+
     <subtitulo-dos-element></subtitulo-dos-element>
   </template>
 
@@ -89,7 +92,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // console.log(this.$.nombre);
       }
 
-      /*
+      static get is() { return 'titulo-element'; }
+      static get properties() {
+        return {
+          nombre: {
+            type: String,
+            value: "sin nombre "
+          },
+          app: { 
+            type: String,
+            value: "sin apellido" // El value se pinta cuando la propiedad no es pasada, vacio cuenta como valor
+          }
+        }
+      }
+
+       /*
       connectedCallback() {
         super.connectedCallback();
         // console.log('Ejecutándose connectedCallback');
@@ -108,29 +125,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       ready() {
         super.ready();
-        
         setTimeout(() => {
           this.nombre = "sin asignar...";
         }, 5000);
-        
-
         // console.log("Ready.....");
         // console.log(this.nombre);
       }
 
-      static get is() { return 'titulo-element'; }
-      static get properties() {
-        return {
-          nombre: {
-            type: String,
-            value: "sin nombre "
-          },
-          app: { 
-            type: String,
-            value: "sin apellido" // El value se pinta cuando la propiedad no es pasada, vacio cuenta como valor
-          }
-        }
-      }
     }
     window.customElements.define(Titulo.is, Titulo);
 

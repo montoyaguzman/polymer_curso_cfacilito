@@ -20,11 +20,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="./my-icons.html">
 
 <!-- ELEMENTS-->
 <link rel="import" href="./components/titulo/titulo-element.html">
 <link rel="import" href="./components/body/body-element.html">
+
+
 
 <dom-module id="my-app">
   <template>
@@ -39,6 +42,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
     Main works!
+    <br>
+    <paper-button on-click="saludador" raised>click me!</paper-button>
+    <paper-button id="eventListenerButton" raised>listener click me!</paper-button>
+
   </template>
 
   <script>
@@ -47,6 +54,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     Polymer.setPassiveTouchGestures(true);
 
     class MyApp extends Polymer.Element {
+
+      constructor() {
+        super();
+      }
+
       static get is() { return 'my-app'; }
 
       static get properties() {
@@ -58,12 +70,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           },
           routeData: Object,
           subroute: Object,
-          // This shouldn't be neccessary, but the Analyzer isn't picking up
-          // Polymer.Element#rootPath
           rootPath: String,
         };
       }
+      
+      ready() {
+        super.ready();
+        this.$.eventListenerButton.addEventListener("click", (e) => this.saludador(e))
+        
+      }
 
+      saludador(e) {
+        console.log("e.target", e.target);
+        console.log("Hubo click....");
+      }
     
     }
 

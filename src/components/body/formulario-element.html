@@ -53,23 +53,7 @@
         </div>
 
       </form>
-
-      <!--
-      <form action="/action_page.php">
-        Username: <input type="text" name="usrname" required>
-        <input type="submit">
-      </form> 
-      -->
     </paper-card>
-
-    <!--
-    <paper-input always-float-label label="Floating label"></paper-input>
-    <paper-input label="username">
-      <iron-icon icon="mail" slot="prefix"></iron-icon>
-      <div slot="suffix">@email.com</div>
-    </paper-input>
-    -->
-    
   </template>
 
   <script>
@@ -81,6 +65,8 @@
         this.$.botonLogin.addEventListener("click", () =>{
           this.$.form.submit();
         })
+        console.log(this.$.form);
+        // console.log(this.$$("#form"));
       }
       
 
